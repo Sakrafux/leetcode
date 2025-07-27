@@ -12,7 +12,9 @@ func main() {
 func twoSum(nums []int, target int) []int {
 	seen := make(map[int]int)
 	for i, iVal := range nums {
+		// Calculate which other value would be necessary...
 		diff := target - iVal
+		// ...and then check whether it exists
 		if j, ok := seen[diff]; ok {
 			return []int{j, i}
 		} else {

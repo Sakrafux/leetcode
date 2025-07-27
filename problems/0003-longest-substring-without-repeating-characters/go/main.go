@@ -18,7 +18,9 @@ func lengthOfLongestSubstring(s string) int {
 	maxLength := 0
 	windowStartIndex := 0
 	for i, char := range s {
+		// We only care about a new character if we have already seen it...
 		if charIndex, ok := charLastIndexMap[char]; ok {
+			// ...and we only need to act upon it, if we have not already passed it
 			windowStartIndex = int(math.Max(float64(windowStartIndex), float64(charIndex+1)))
 		}
 		charLastIndexMap[char] = i

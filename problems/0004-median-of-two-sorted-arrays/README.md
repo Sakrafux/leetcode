@@ -106,3 +106,7 @@ l2 <= r1 <=> 3 <= 4
 
 Median = (max(l1, l2) + min(r1, r2)) / 2 = (max(-Inf, 3) + min(6, 4)) / 2 = 3.5
 ```
+
+### Another approach
+
+A much easier approach is to simply merge the 2 arrays using 2 pointers that move according to who points to the smaller element. This takes `O(n+m)` and the merged array can then be simplied used to calculate the median.
