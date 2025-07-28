@@ -1,49 +1,64 @@
-# [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
+# [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)
 
-The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+Seven different symbols represent Roman numerals with the following values:
 
-```
-P   A   H   N
-A P L S I I G
-Y   I   R
-```
+<table><thead><tr><th>Symbol</th><th>Value</th></tr></thead><tbody><tr><td>I</td><td>1</td></tr><tr><td>V</td><td>5</td></tr><tr><td>X</td><td>10</td></tr><tr><td>L</td><td>50</td></tr><tr><td>C</td><td>100</td></tr><tr><td>D</td><td>500</td></tr><tr><td>M</td><td>1000</td></tr></tbody></table>
 
-And then read line by line: <code>"PAHNAPLSIIGYIR"</code>
+Roman numerals are formed by appendingthe conversions ofdecimal place valuesfrom highest to lowest. Converting a decimal place value into a Roman numeral has the following rules:
 
-Write the code that will take a string and make this conversion given a number of rows:
+- If the value does not start with 4 or9, select the symbol of the maximal value that can be subtracted from the input, append that symbol to the result, subtract its value, and convert the remainder to a Roman numeral.
+- If the value starts with 4 or 9 use the**subtractive form** representingone symbol subtracted from the following symbol, for example,4 is 1 (<code>I</code>) less than 5 (<code>V</code>): <code>IV</code>and 9 is 1 (<code>I</code>) less than 10 (<code>X</code>): <code>IX</code>.Only the following subtractive forms are used: 4 (<code>IV</code>), 9 (<code>IX</code>),40 (<code>XL</code>), 90 (<code>XC</code>), 400 (<code>CD</code>) and 900 (<code>CM</code>).
+- Only powers of 10 (<code>I</code>, <code>X</code>, <code>C</code>, <code>M</code>) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5(<code>V</code>), 50 (<code>L</code>), or 500 (<code>D</code>) multiple times. If you need to append a symbol4 timesuse the **subtractive form** .
 
-```
-string convert(string s, int numRows);
-```
+Given an integer, convert it to a Roman numeral.
 
 **Example 1:**
 
+<div class="example-block">
+Input: num = 3749
+
+Output: "MMMDCCXLIX"
+
+Explanation:
+
 ```
-Input: s = "PAYPALISHIRING", numRows = 3
-Output: "PAHNAPLSIIGYIR"
+3000 = MMM as 1000 (M) + 1000 (M) + 1000 (M)
+ 700 = DCC as 500 (D) + 100 (C) + 100 (C)
+  40 = XL as 10 (X) less of 50 (L)
+   9 = IX as 1 (I) less of 10 (X)
+Note: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal places
 ```
 
 **Example 2:**
 
-```
-Input: s = "PAYPALISHIRING", numRows = 4
-Output: "PINALSIGYAHRPI"
+<div class="example-block">
+Input: num = 58
+
+Output: "LVIII"
+
 Explanation:
-P     I    N
-A   L S  I G
-Y A   H R
-P     I
+
+```
+50 = L
+ 8 = VIII
 ```
 
 **Example 3:**
 
+<div class="example-block">
+Input: num = 1994
+
+Output: "MCMXCIV"
+
+Explanation:
+
 ```
-Input: s = "A", numRows = 1
-Output: "A"
+1000 = M
+ 900 = CM
+  90 = XC
+   4 = IV
 ```
 
 **Constraints:**
 
-- <code>1 <= s.length <= 1000</code>
-- <code>s</code> consists of English letters (lower-case and upper-case), <code>','</code> and <code>'.'</code>.
-- <code>1 <= numRows <= 1000</code>
+- <code>1 <= num <= 3999</code>

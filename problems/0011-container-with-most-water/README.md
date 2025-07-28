@@ -1,49 +1,31 @@
-# [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+# [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
 
-The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i^th</code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.
 
-```
-P   A   H   N
-A P L S I I G
-Y   I   R
-```
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
 
-And then read line by line: <code>"PAHNAPLSIIGYIR"</code>
+Return the maximum amount of water a container can store.
 
-Write the code that will take a string and make this conversion given a number of rows:
-
-```
-string convert(string s, int numRows);
-```
+**Notice** that you may not slant the container.
 
 **Example 1:**
+<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg" style="width: 600px; height: 287px;">
 
 ```
-Input: s = "PAYPALISHIRING", numRows = 3
-Output: "PAHNAPLSIIGYIR"
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
 ```
 
 **Example 2:**
 
 ```
-Input: s = "PAYPALISHIRING", numRows = 4
-Output: "PINALSIGYAHRPI"
-Explanation:
-P     I    N
-A   L S  I G
-Y A   H R
-P     I
-```
-
-**Example 3:**
-
-```
-Input: s = "A", numRows = 1
-Output: "A"
+Input: height = [1,1]
+Output: 1
 ```
 
 **Constraints:**
 
-- <code>1 <= s.length <= 1000</code>
-- <code>s</code> consists of English letters (lower-case and upper-case), <code>','</code> and <code>'.'</code>.
-- <code>1 <= numRows <= 1000</code>
+- <code>n == height.length</code>
+- <code>2 <= n <= 10^5</code>
+- <code>0 <= height[i] <= 10^4</code>

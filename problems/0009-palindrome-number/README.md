@@ -1,49 +1,33 @@
-# [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+# [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
 
-The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
-
-```
-P   A   H   N
-A P L S I I G
-Y   I   R
-```
-
-And then read line by line: <code>"PAHNAPLSIIGYIR"</code>
-
-Write the code that will take a string and make this conversion given a number of rows:
-
-```
-string convert(string s, int numRows);
-```
+Given an integer <code>x</code>, return <code>true</code> if <code>x</code> is a <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rs:" data-state="closed" class="">**palindrome** </button>, and <code>false</code> otherwise.
 
 **Example 1:**
 
 ```
-Input: s = "PAYPALISHIRING", numRows = 3
-Output: "PAHNAPLSIIGYIR"
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
 ```
 
 **Example 2:**
 
 ```
-Input: s = "PAYPALISHIRING", numRows = 4
-Output: "PINALSIGYAHRPI"
-Explanation:
-P     I    N
-A   L S  I G
-Y A   H R
-P     I
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
 ```
 
 **Example 3:**
 
 ```
-Input: s = "A", numRows = 1
-Output: "A"
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 ```
 
 **Constraints:**
 
-- <code>1 <= s.length <= 1000</code>
-- <code>s</code> consists of English letters (lower-case and upper-case), <code>','</code> and <code>'.'</code>.
-- <code>1 <= numRows <= 1000</code>
+- <code>-2^31<= x <= 2^31- 1</code>
+
+**Follow up:** Could you solve it without converting the integer to a string?

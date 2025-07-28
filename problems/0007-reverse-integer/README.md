@@ -1,49 +1,30 @@
-# [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
+# [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)
 
-The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+Given a signed 32-bit integer <code>x</code>, return <code>x</code> with its digits reversed. If reversing <code>x</code> causes the value to go outside the signed 32-bit integer range <code>[-2^31, 2^31 - 1]</code>, then return <code>0</code>.
 
-```
-P   A   H   N
-A P L S I I G
-Y   I   R
-```
-
-And then read line by line: <code>"PAHNAPLSIIGYIR"</code>
-
-Write the code that will take a string and make this conversion given a number of rows:
-
-```
-string convert(string s, int numRows);
-```
+**Assume the environment does not allow you to store 64-bit integers (signed or unsigned).**
 
 **Example 1:**
 
 ```
-Input: s = "PAYPALISHIRING", numRows = 3
-Output: "PAHNAPLSIIGYIR"
+Input: x = 123
+Output: 321
 ```
 
 **Example 2:**
 
 ```
-Input: s = "PAYPALISHIRING", numRows = 4
-Output: "PINALSIGYAHRPI"
-Explanation:
-P     I    N
-A   L S  I G
-Y A   H R
-P     I
+Input: x = -123
+Output: -321
 ```
 
 **Example 3:**
 
 ```
-Input: s = "A", numRows = 1
-Output: "A"
+Input: x = 120
+Output: 21
 ```
 
 **Constraints:**
 
-- <code>1 <= s.length <= 1000</code>
-- <code>s</code> consists of English letters (lower-case and upper-case), <code>','</code> and <code>'.'</code>.
-- <code>1 <= numRows <= 1000</code>
+- <code>-2^31 <= x <= 2^31 - 1</code>
