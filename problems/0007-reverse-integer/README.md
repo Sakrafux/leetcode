@@ -28,3 +28,7 @@ Output: 21
 **Constraints:**
 
 - <code>-2^31 <= x <= 2^31 - 1</code>
+
+## Solution
+
+The standard approach for reversing a number is rather simple, by repeatedly taking its modulo 10 for the digit, dividing the number by 10, and building the result by multiplying by 10 instead and adding the digit. However, the difficulty lies in recognizing the limits. For this purpose, we precalculate the constants that may not be crossed based on the limits, i.e. if the result is already greater/lesser than those constants then we can't proceed anymore.
