@@ -99,3 +99,7 @@ Reading stops at the first non-digit character 'w'.
 
 - <code>0 <= s.length <= 200</code>
 - <code>s</code> consists of English letters (lower-case and upper-case), digits (<code>0-9</code>), <code>' '</code>, <code>'+'</code>, <code>'-'</code>, and <code>'.'</code>.
+
+## Solution
+
+The solution is rather straightforward, with the only issue really being the possible exceptions, i.e. an empty string or a blank string (only whitespaces). Otherwise, simply skip the whitespaces, read the sign if possible. Then read the remaining string, ending on non-numeric characters, skip '0' as long as the result is 0, i.e. leading zeroes, and add the digit to the result, keeping in mind that '0' is actually an ASCII code and not 0. Since we are not constrained to int32 on the system, we can simply add the digit and then check for int32 boundaries in order to round.
