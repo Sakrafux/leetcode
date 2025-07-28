@@ -44,3 +44,7 @@ Explanation: The maximum possible bitwise OR of a subset is 7. There are 6 subse
 ````
 
 ## Solution
+
+The simple brute force solution just tries to generate each subset combination and forms the relevant bitwise OR and checks against the current maximum value. This is `O(2^n)`.
+
+A more sophisticated approach makes use of the properties of the bitwise OR. For this, we initialize an array for our possible OR-values, i.e. 2^17-1. Then we iterate over the available numbers and then iterate based on the current maximum value backwards (backwards so as not to falsify the ongoing iteration, a cloned array should also work). This counts all combinations a sum can be reached through bitwise-OR.
