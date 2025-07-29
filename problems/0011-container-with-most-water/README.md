@@ -29,3 +29,7 @@ Output: 1
 - <code>n == height.length</code>
 - <code>2 <= n <= 10^5</code>
 - <code>0 <= height[i] <= 10^4</code>
+
+## Solution
+
+The largest possible area would be if the largest array values are located at the edges of the array. Every other solution must be worse, thus we place two pointers, one at each edge. We then iterate until the pointers meet, calculating the area and then moving the pointer with less height closer to the other.
