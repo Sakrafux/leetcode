@@ -62,3 +62,7 @@ Explanation:
 **Constraints:**
 
 - <code>1 <= num <= 3999</code>
+
+## Solution
+
+Due to the definition of roman numbers, we have a limited mapping of symbols, i.e. which numbers can be represented by a single token (consisting of 1 to 2 characters). Creating all those mappings, we can then iterate over them and if the value is larger than the number represented by the mapping, we substract the mapping's value and add its token to the result string. Is the value smaller than the mapping, we simply go to the next mapping. This is repeated until the number is 0.
