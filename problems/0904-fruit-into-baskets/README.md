@@ -40,3 +40,12 @@ If we had started at the first tree, we would only pick from trees [1,2].
 
 - <code>1 <= fruits.length <= 10^5</code>
 - <code>0 <= fruits[i] < fruits.length</code>
+
+## Solution
+
+To solve the problem, we use a sliding window that keeps the current continuous fruits according to the rules.
+It continually expands rightwards with the start pointer only getting adjusted once we see a new fruit.
+We move it behind the fruit that we haven't seen for longer to ensure that the new window is the largest it could
+be according to the rules.
+
+We only traverse the array once and otherwise only do fixed time operations, which is why the time complexity is `O(n)`.

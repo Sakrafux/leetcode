@@ -45,3 +45,12 @@ Since all fruits are successfully placed, we return 0.
 - <code>n == fruits.length == baskets.length</code>
 - <code>1 <= n <= 100</code>
 - <code>1 <= fruits[i], baskets[i] <= 1000</code>
+
+## Solution
+
+Since this is the easy version of the problem, this asks for a simple approach. The simple solution is to iterate
+both arrays in a nested manner, with the outer loop iterating the fruits and the inner loop the baskets. Once we 
+find a fit, we simply set the capacity negative and move on to the next fruit. If we don't find a fit, it can't
+be placed.
+
+The time complexity of this is `O(n²)`.

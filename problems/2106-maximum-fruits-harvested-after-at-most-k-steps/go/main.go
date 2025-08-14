@@ -12,6 +12,48 @@ func main() {
 
 // Solution
 func maxTotalFruits(fruits [][]int, startPos int, k int) int {
+	sum, maxSum := 0, 0
+
+	// We use a sliding window
+	for left, right := 0, 0; right < len(fruits); right++ {
+		// Once an element enters the sliding window, it is added to the sum
+		sum += fruits[right][1]
+		// If our sliding window covers too much distance, we need to shrink it and remove the
+		// elements that now fall outside from the sum
+		for left <= right && minSteps(fruits[left][0], fruits[right][0], startPos) > k {
+			sum -= fruits[left][1]
+			left++
+		}
+		// Keep track of the largest sum at any point
+		if sum > maxSum {
+			maxSum = sum
+		}
+	}
+
+	return maxSum
+}
+
+// Calculate the distance expressed by the sliding window
+func minSteps(left, right, start int) int {
+	// Either go left first...
+	a := abs(start-left) + (right - left)
+	// ...or right first...
+	b := abs(start-right) + (right - left)
+	// ...and use the shorter way
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func maxTotalFruits_maps(fruits [][]int, startPos int, k int) int {
 	fruitsAtPos := make(map[int]int)
 	for _, entry := range fruits {
 		fruitsAtPos[entry[0]] = entry[1]

@@ -30,3 +30,14 @@ Explanation: It can be shown that it is impossible to make both the baskets equa
 - <code>basket1.length == basket2.length</code>
 - <code>1 <= basket1.length <= 10^5</code>
 - <code>1 <= basket1[i],basket2[i]<= 10^9</code>
+
+## Solution
+
+We need to make use of 2 facts: 1. the total number of fruits to split per type and the number of swaps must be even,
+because otherwise there is no solution anyway, and 2. instead of swapping 2 elements directly we can instead do 2
+swaps using the smallest element as a helper.
+
+Now the first part consists of counting the occurrences in each basket and, based on that, establish the elements that
+need to be swapped. The second part concerns itself with optimizing the necessary swaps.
+
+The most complex part of this is the sorting and thus we have time complexity `O(n*log(n))`.

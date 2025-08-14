@@ -45,3 +45,18 @@ Since all fruits are successfully placed, we return 0.
 - <code>n == fruits.length == baskets.length</code>
 - <code>1 <= n <= 10^5</code>
 - <code>1 <= fruits[i], baskets[i] <= 10^9</code>
+
+## Solution
+
+This is the harder version of the same problem as 3477 and thus asks for better time complexity, which invalidates
+the brute force, and other, solutions of `O(n²)`. The proper approach uses segment trees, as they allow us to 
+communicate multiple pieces of information at once. In this case, both the index of the basket array, which is important,
+since we want to take the first basket available, while also preserving its capacity.
+
+Segment trees can be represented as arrays, where the range information is implicit, and we can use them similar to 
+a max heap. First, we create the segment tree with the index of the basket array as the range and its capacity as the value.
+We can then traverse the tree left-first to find the left-most basket of sufficient capacity, which we then use up by 
+setting its capacity to 0 and updating the tree accordingly. Since the parent node always contains the largest capacity,
+we know instantly whether we can place a given fruit or not.
+
+Since all the operations involved with (segment) trees are at most `O(n*log(n))`, this is our time complexity.

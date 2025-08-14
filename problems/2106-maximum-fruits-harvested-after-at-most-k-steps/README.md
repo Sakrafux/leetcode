@@ -53,3 +53,18 @@ You can move at most k = 2 steps and cannot reach any position with fruits.
 - <code>position<sub>i-1</sub> < position<sub>i</sub></code> for any <code>i > 0</code>(**0-indexed** )
 - <code>1 <= amount<sub>i</sub> <= 10^4</code>
 - <code>0 <= k <= 2 \* 10^5</code>
+
+## Solution
+
+The most elegant solution for this problem uses a sliding window. Since the fruits are already sorted ascending by
+their position, we can continually move rightwards, while catching up from the left side if we are covering too much
+distance. The rightwards expansion adds the number of fruit, while the left-side shrinking removes them. In the worst
+case of no close enough fruits, we add and remove all elements resulting in sum 0. For each window we calculate its
+distance by the minimum of either going left or right first. Since this uses a sliding window and we only traverse
+the array once, this has time complexity `O(n)`.
+
+Another solution would be to use maps and prefix sums. The prefix sum arrays capture the sum of fruits of moving a given 
+number of steps in a direction (i.e. 2 prefix sum arrays, left and right). The result is then trying all combinations
+of both prefix sums by moving a number of steps in one direction and the remaining in the other. While this technically
+also has time complexity `O(n)`, the fixed time operations involved in this are much more numerous thus leading to higher
+runtime than the sliding window approach.
