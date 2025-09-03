@@ -69,3 +69,7 @@ last valid bottom-right. This works because of our sorting.
 
 The time complexity of this is `O(n²)`, because the sorting in `O(n*log(n))` is overshadowed by the pair-wise comparison
 in `O(n²)` due to the nested iteration.
+
+A much simpler solution with worse time complexity is simply brute-forcing all combinations. As this would entail iterating
+once for point A, once nested for point B, and once more nested to check whether any other point lies in between, this
+is `O(n³)`.
